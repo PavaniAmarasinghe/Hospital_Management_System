@@ -1,1 +1,5 @@
 2.9 mongodb ek connect krddi mern stack ek awe netha
+
+3.12 di mongo db seen ek ayeth enw
+
+3.24 di mongo db seen ek ayeth enw
