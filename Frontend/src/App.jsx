@@ -10,6 +10,7 @@ import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from "./components/Navbar.jsx";
 import { Context } from "./main.jsx";
+import Footer from "./components/Footer.jsx";
 
 const App = () =>{
   const {isAuthenticated,setIsAuthenticated,setUser} = useContext(Context);
@@ -37,6 +38,7 @@ const App = () =>{
         <Route path='/about' element={<AboutUs/>}/>
         <Route path='/appointment' element={<Appointment/>}/>
       </Routes>
+      <Footer/>
       <ToastContainer position="top-center"/>
     </Router>
 
