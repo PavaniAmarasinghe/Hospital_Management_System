@@ -9,6 +9,8 @@ const Navbar = () => {
     const[show, setShow] = useState(false);
     const{isAuthenticated,setIsAuthenticated} = useContext(Context);
 
+    const navigateTo = useNavigate();
+    
     const handleLogout = async()=>{
         await axios.get("http://localhost:4000/api/v1/user/patient/logout",{withCredentials:true}
 
@@ -21,7 +23,7 @@ const Navbar = () => {
         });
         
     };
-    const navigateTo = useNavigate();
+  
 
     const goToLogin = ()=>{
         navigateTo("/login");
