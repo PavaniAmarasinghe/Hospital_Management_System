@@ -40,7 +40,8 @@ const AppointmentForm = () =>{
                 "http://localhost:4000/api/v1/user/doctors",
                 {withCredentials:true}
             );
-            setDoctors(data,doctors);
+            setDoctors(data.doctors);
+            console.log(data.doctors);
         };
         fetchDoctors();
     },[]);
@@ -129,13 +130,17 @@ const AppointmentForm = () =>{
             >
                 <option value="">Select Doctor</option>
                 {
-                  doctors.filter(doctor=> doctor.doctorDepartment === department).map((doctor,index)=>{
-                    return(
-                        <option value={`${doctor.firstName} ${doctor.lasttName}`}key={index}>
-                            {doctor.firstName} {doctor.lastName}
+                  doctors
+                  .filter((doctor)=> doctor.doctorDepartment === department)
+                  .map((doctor,index)=>(
+                    
+                        <option value={`${doctor.firstName} ${doctor.lastName}`}
+                        key={index}>
+                        
+                        {doctor.firstName} {doctor.lastName}
                     </option>
                     )
-                  })
+                  )
                 }
             </select>
             </div>

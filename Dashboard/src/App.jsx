@@ -1,20 +1,20 @@
 import React, { useContext, useEffect } from "react";
-import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import AddNewAdmin from "./components/AddNewAdmin";
 import AddNewDoctor from "./components/AddNewDoctor";
+import AddNewAdmin from "./components/AddNewAdmin";
 import Doctors from "./components/Doctors";
 import Messages from "./components/Messages";
 import Sidebar from "./components/Sidebar";
+import { Context } from "./main";
+import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {Context} from "./main";
-import axios from "axios";
+import "./App.css";
 
-const App = () =>{
-
-  const {isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+const App = () => {
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
 
   useEffect(()=>{
     const fetchUser =async() =>{
@@ -33,7 +33,7 @@ const App = () =>{
   return (
     <>
     <Router>
-      <Sidebar/>
+      <Sidebar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
@@ -45,6 +45,7 @@ const App = () =>{
       <ToastContainer position="top-center" />
     </Router>
     </>
-  )
-}
+  );
+};
+
 export default App;

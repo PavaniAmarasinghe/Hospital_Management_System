@@ -8,6 +8,18 @@ import messageRouter from "./router/messageRouter.js";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
+import axios from "axios";
+
+const getUserData = async () => {
+  try {
+      const response = await axios.get('http://localhost:4000/api/v1/user/admin/me');
+      console.log(response.data);
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+};
+
+getUserData();
 
 const app = express();
 config({ path: "./config/config.env" });

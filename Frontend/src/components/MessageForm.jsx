@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-
+import axios from "axios";
 
 const MessageForm = () =>{
     const [firstName, setFirstName] = useState("");
@@ -25,7 +25,7 @@ const MessageForm = () =>{
           });
     }
     catch (error) {
-        toast.error(res.response.data.message);
+        toast.error(error.response.data.message);
 
     }
     };

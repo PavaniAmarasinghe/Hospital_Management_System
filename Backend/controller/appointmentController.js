@@ -3,6 +3,8 @@ import ErrorHandler from "../middlewares/errorMiddleware.js";
 import { Appointment } from "../models/appointmentSchema.js";
 import { User } from "../models/userSchema.js";
 
+
+
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   const {
     firstName,
