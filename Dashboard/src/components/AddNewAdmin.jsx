@@ -40,9 +40,7 @@ const AddNewAdmin = () => {
     }
   };
 
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
-  }
+
   
 
   return (

@@ -58,7 +58,7 @@ const AddNewDoctor = () => {
       formData.append("doctorDepartment", doctorDepartment);
       formData.append("docAvatar", docAvatar);
       await axios
-        .post("http://localhost:4000/api/v1/user/doctor/addnew", formData, {
+        .get("http://localhost:4000/api/v1/user/doctor/addnew", formData, {
           withCredentials: true,
           headers: { "Content-Type": "multipart/form-data" },
         })
@@ -80,9 +80,6 @@ const AddNewDoctor = () => {
     }
   };
 
-  if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
-  }
   return (
     <section className="page">
       <section className="container add-doctor-form">
@@ -99,7 +96,8 @@ const AddNewDoctor = () => {
               />
               <input type="file" onChange={handleAvatar} />
             </div>
-            <div>
+          
+             <div>
               <input
                 type="text"
                 placeholder="First Name"
@@ -157,10 +155,10 @@ const AddNewDoctor = () => {
                 }}
               >
                 <option value="">Select Department</option>
-                {departmentsArray.map((depart, index) => {
+                {departmentsArray.map((element, index) => {
                   return (
-                    <option value={depart} key={index}>
-                      {depart}
+                    <option value={element} key={index}>
+                      {element}
                     </option>
                   );
                 })}
